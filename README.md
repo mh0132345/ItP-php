@@ -1,2 +1,2 @@
 # ItP-php
-Just pho code of the course
+Just php code of the course
