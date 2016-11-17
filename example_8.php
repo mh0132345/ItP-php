@@ -20,19 +20,29 @@ We also disply their previous values. -->
 <?php
 //Here we define the function to display the summary.
 function display_summary($height, $weight) {
-
+	session_start();
+	for($i=0; $i < count($_SESSION['name']); $i++){
+	echo $_SESSION['name'][$i].'<br/>';
+	if ($i>=1) echo "<h3>Analysis result: </h3>";
+	echo $_SESSION['result'][$i].'<br>';
+}
+    
 if(empty($height) && empty($weight))
    echo "Your body shape cannot be deteremined! <br/>";
 else {
   echo "Your name: ".$_POST["name"]."<br/>";	
   echo "<h3>Analysis result: </h3>";
   if($weight <=($height-100+5) && ($weight >=($height-100-5) ))
-    echo '<p style="color: green;"> You are normal weight. <br/></p>';
+    $result = '<p style="color: green;"> You are normal weight. <br/></p>';
   elseif($weight >($height-100+5))
-    echo '<p style="color: red;"> You are overweighted! <br/></p>';
+    $result = '<p style="color: red;"> You are overweighted! <br/></p>';
   elseif($weight <($height-100-5))
-     echo '<p style="color:yellow;">You are underweighted! <br/></p>';
+    $result = '<p style="color:yellow;">You are underweighted! <br/></p>';
+  echo $result;
 }
+
+$_SESSION['name'][]= $_POST['name'];
+$_SESSION['result'][] = $result;
 }
 echo "<hr>";
 //Here we make sure that not parameter is without a value before printing any information.
@@ -41,3 +51,6 @@ display_summary($_POST["height"], $_POST["weight"] );
 ?>
 </body>
 </html>
+
+ 
+
