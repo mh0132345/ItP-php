@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- This is the starting form for example 9 -->
+<html> 
+<head>
+<title>User Blog</title>
+<style>
+th, td {
+     padding: 5px;
+    text-align: left;
+}
+</style>
+</head> 
+<body>
+<h2>User Blog</h2>
+<form action="blog_data.php" method="post">
+<table border=0>
+<!--In the following we print the borders of text boxes in red if they're empty. We also disply their previous values. --> 
+<tr><th>Name:</th><td><input type="text" name="name" /> </td></tr>
+<tr><th>Comment:</th><td><textarea name="comment" ></textarea> </td></tr>
+<tr><td></td><td><input type="submit" name="submit_comment_data" value="Submit Data" /></td></tr>
+</table> </form>
+------------
+<h2> Search data </h2>
+<form  action="search.php" method="post">
+	Keyword: <input type="text" name="keyword">
+	<input type="submit" value="Search">
+</form>
+</body> </html>
